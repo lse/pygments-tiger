@@ -7,7 +7,7 @@ setuptools.setup(
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     description='Pygments lexer for the Tiger Language',
-    url='',
+    url='https://github.com/lse/pygments-tiger',
     author='Gabriel Laskar',
     author_email='gabriel@lse.epita.fr',
     license='MIT',
