@@ -11,7 +11,7 @@ setuptools.setup(
     author='Gabriel Laskar',
     author_email='gabriel@lse.epita.fr',
     license='MIT',
-    packages=setuptools.find_packages(),
+    packages=['.'],
     install_requires=[
         'pygments',
     ],
