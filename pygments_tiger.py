@@ -24,9 +24,9 @@ class TigerLexer(RegexLexer):
             (r'[\n\r\s]+', Text),
         ],
         'comment': [
-            (r'[^/*]+', Comment),
             (r'/\*', Comment, '#push'),
             (r'\*/', Comment, '#pop'),
+            (r'.+', Comment),
         ],
         'escape-sequence': [
             (r'\\[abfnrtv]', String.Escape),
