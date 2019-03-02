@@ -24,9 +24,10 @@ class TigerLexer(RegexLexer):
             (r'[\n\r\s]+', Text),
         ],
         'comment': [
-            (r'/\*', Comment, '#push'),
-            (r'\*/', Comment, '#pop'),
-            (r'.+', Comment),
+            (r'[^*/]', Comment.Multiline),
+            (r'/\*', Comment.Multiline, '#push'),
+            (r'\*/', Comment.Multiline, '#pop'),
+            (r'[*/]', Comment.Multiline),
         ],
         'escape-sequence': [
             (r'\\[abfnrtv]', String.Escape),
@@ -42,7 +43,7 @@ class TigerLexer(RegexLexer):
         ],
         'root': [
             include('whitespace'),
-            (r'/\*', Comment, 'comment'),
+            (r'/\*', Comment.Multiline, 'comment'),
             (r'\b({})\b'.format('|'.join(keywords)), Keyword),
             (r'({})'.format('|'.join(operators)), Operator),
             (r'(nil)', Keyword.Constant),
